@@ -305,7 +305,7 @@
 {#if Visible}
     <div
         transition:scale
-        class="primary-shadow default-game-position w-[20vw] h-[0.5vw] bg-primary-50 flex items-center"
+        class="primary-shadow default-game-position w-[20vw] h-[0.5vw] bg-primary-25 flex items-center"
     >
         <div
             class="h-[2.5vw] aspect-square absolute grid place-items-center center-y secondary-shadow bg-primary-50 -translate-x-[130%]"

@@ -8,15 +8,15 @@ export default {
 
     extend: {
         colors: {
-            // Configure your color palette here
             primary: '#FAF7FF',
             secondary: '#2C2C2C',
             tertiary: '#424050',
-            accent: '#8685EF',
+            accent: '#ED2F59',
 
             fail: '#FF0039',
             success: '#65E046',
 
+            "primary-25": "#ED2F59",
             "primary-50": '#FAF7FF50',
             "primary-75": '#FAF7FF75',
           },
