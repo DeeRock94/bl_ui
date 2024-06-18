@@ -120,6 +120,7 @@
 
                         if (state === 'active') {
                             const leftValue = get(left);
+
                             if (
                                 leftValue > zoneRange.min &&
                                 leftValue < zoneRange.max
@@ -264,12 +265,27 @@
     /**
      * Generate the keys to be pressed.
      */
-    function generateLines(numLines: number, duration: number) {
+     function generateLines(numLines, duration) {
         const lines = [];
+        let lastTimeoutDuration = 0;
+
+        // It was impossible on 90+ difficulty. Adding minGap now allows a X ms gap between
+        // lines
+        const minGap = 350;
+
+
         for (let i = 0; i < numLines; i++) {
             const random = Math.random() * 100;
             const durationRandom = duration * (0.2 + Math.random() * 0.6);
-            const timeoutDuration = durationRandom + (random / 100 + i * 10);
+            let timeoutDuration = lastTimeoutDuration + durationRandom + (random / 100 + i * 10);
+
+            // Ensure that the newly added minimum gap is in place between each line
+            if (timeoutDuration - lastTimeoutDuration < minGap) {
+                timeoutDuration = lastTimeoutDuration + minGap;
+            }
+
+            lastTimeoutDuration = timeoutDuration;
+            // console.log('Timeout duration: ', timeoutDuration);
 
             const line = {
                 left: tweened(0, { duration: 0 }),
@@ -279,7 +295,9 @@
             setTimeout(() => {
                 if (IterationState) return;
                 line.left.set(100, { duration });
-            }, timeoutDuration * i);
+
+                // console.log(timeoutDuration * i);
+            }, timeoutDuration);
 
             lines.push(line);
         }
