@@ -77,7 +77,7 @@ export const RAPID_LINES = {
      * The minimum and maximum duration of the lines from one side to the other.
      */
     DURATION: {
-        MIN: 500,
+        MIN: 750,
         MAX: 3000,
     },
 
