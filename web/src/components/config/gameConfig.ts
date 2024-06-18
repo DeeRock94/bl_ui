@@ -77,7 +77,7 @@ export const RAPID_LINES = {
      * The minimum and maximum duration of the lines from one side to the other.
      */
     DURATION: {
-        MIN: 750,
+        MIN: 700,
         MAX: 3000,
     },
 
@@ -85,7 +85,7 @@ export const RAPID_LINES = {
      * The minimum and maximum size of the zone in %.
      */
     ZONE: {
-        MIN: 5,
+        MIN: 10,
         MAX: 40,
     },
 
